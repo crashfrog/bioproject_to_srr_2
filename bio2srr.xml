@@ -1,0 +1,27 @@
+<tool id="bio2srr" name="Bioproject to SRR" version="0.1.0">
+	<description>Retrieve SRR accessions from BioProject or BioSample.</description>
+    <requirements>
+        <requirement type="package" version="3.8">python</requirement>
+    	<requirement type="package" version="2.24.0">requests</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        $__tool_directory__/bio2srr.py "$input1" > "$output"
+    ]]></command>
+    <inputs>
+        <param type="text" name="input1" label="BioProject or BioSample" />
+    </inputs>
+    <outputs>
+    	<data format="txt" name="output" />
+    </outputs>
+    <tests>
+    	<test>
+    		<param name="input1" value="NOTHING" />
+    		<output name="output" file="test.txt" />
+    	</test>
+    </tests>
+    <help><![CDATA[
+        Retrieve SRR accessions by BioSample or BioProject.
+    ]]></help>
+    <citations>
+    </citations>
+</tool>
